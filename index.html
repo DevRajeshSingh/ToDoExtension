@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>DO!</title>
+  </head>
+  <body id="bodymode" class="lightmode">
+    <div class="wrapper" id="wrapper">
+      <div class="upHeader">
+        <header id="mainTitle">All TODO's</header>
+        <input type="checkbox" id="switch" name="checkBox"/>
+        <label for="switch" />
+      </div>
+      <div class="inputField">
+        <input type="text" placeholder="Add your new todo" id="inputBox" />
+        <button>+</button>
+      </div>
+      <ul class="todoList"></ul>
+      <div class="footer">
+        <span>You have <span class="pendingTasks"></span> pending tasks</span>
+        <div class="space">
+        <button class="deleteAllBtn">Clear All</button>
+        <button class="delOne">Clear One</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
