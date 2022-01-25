@@ -9,8 +9,7 @@ window.addEventListener("load", (event) => {
   var dd = String(today.getDate()).padStart(2, "0");
   var mm = String(today.getMonth() + 1).padStart(2, "0");
   today = dd + "/" + mm;
-  document.getElementById("mainTitle").innerHTML = `${today}  TODO's` ;
-  console.log(today);
+  document.getElementById("mainTitle").innerHTML = `${today}  TODO's`;
   const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
   if (darkThemeMq.matches) {
     myFunction();
@@ -69,11 +68,15 @@ function showTasks() {
     delOne.classList.remove("active");
   }
   let newLiTag = "";
+  let num = 0;
   listArray.forEach((element, index) => {
-    newLiTag += `<li>${element}<span class="icon" onclick="deleteTask(${index})"><span class="bold">-</span></i></span></li>`;
+    newLiTag += `<li><p>${element}</p><span class="icon"><span class="bold">-</span></i></span></li>`;
   });
   todoList.innerHTML = newLiTag;
   inputBox.value = "";
+  if (listArray.length > 0) {
+    inspect();
+  }
 }
 
 function deleteTask(index) {
@@ -97,16 +100,12 @@ function myFunction() {
 let sw = document.getElementById("switch");
 sw.addEventListener("click", myFunction);
 
-/*
-let iconClass = document.getElementsByClassName("icon");
-for (var i = 0; i < iconClass.length; i++) {
-  iconClass[i].addEventListener("click", () => {
-    listArray.forEach((element, index) => {
-              if(element == iconClass[i].previousSibling.wholeText){
-                  deleteTask(index);
-              }
-      console.log(element);
+function inspect() {
+  let iconClass = document.getElementsByClassName("icon");
+
+  for (let i = 0; i < iconClass.length; i++) {
+    iconClass[i].addEventListener("click", () => {
+      deleteTask(i);
     });
-  });
+  }
 }
-*/
